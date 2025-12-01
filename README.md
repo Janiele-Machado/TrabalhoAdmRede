@@ -1,25 +1,47 @@
 **Projeto Final de Administração de Redes de Computadores**
-1. Objetivo do Projeto
+1. Introdução
 
-Este projeto tem como objetivo implementar um ambiente de rede completo utilizando máquinas virtuais, com foco em serviços essenciais de infraestrutura. Toda a configuração será documentada e versionada em GitHub, incluindo scripts, prints e logs de testes.
+Este documento apresenta a configuração completa de um ambiente de rede virtualizada contendo:
 
-O trabalho prevê:
+Um pfSense atuando como roteador, firewall, servidor DHCP e servidor DNS.
 
-Configuração de um firewall/roteador pfSense.
+Uma máquina Linux Mint Servidor, responsável pelos serviços:
 
-Criação de um servidor Linux Mint responsável por hospedar serviços de Apache, FTP e NFS.
+- Apache (servidor web)
 
-Criação de um cliente Mint para testes de conectividade.
+- FTP
 
-Implantação de DHCP e DNS no pfSense.
+- NFS
 
-Realização de testes para validar o funcionamento de toda a rede interna.
+Uma máquina Linux Mint Cliente, que consome os serviços configurados.
+
+O objetivo é demonstrar a construção de uma infraestrutura de rede funcional e estável utilizando tecnologias amplamente aplicadas em ambientes corporativos.
 
 2. Topologia da Rede
 
+A topologia utilizada neste projeto segue o seguinte modelo:
+
+pfSense (roteador/firewall)
+
+- Interface WAN: modo bridge
+
+- Interface LAN: 192.168.24.1/24
+
+Linux Mint Servidor
+
+- IP: 192.168.24.10/24 (DHCP reservado ou estático)
+
+- Funções: Apache, FTP, NFS
+
+Linux Mint Cliente
+
+- IP via DHCP: 192.168.24.X
+
+- Funciona como consumidor dos serviços
+
 A topologia lógica utilizada no ambiente virtual é a seguinte:
 
-                INTERNET (Bridge da Máquina Real)
+                      INTERNET
                          |
                       [WAN - pfSense] (Bridge)
                          |
@@ -27,7 +49,12 @@ A topologia lógica utilizada no ambiente virtual é a seguinte:
                          |
         -------------------------------------------------
         |                                               |
-    [MINT SERVIDOR - 192.168.24.xxx]       [MINT CLIENTE - 192.168.24.xxx]
+    [MINT SERVIDOR - 192.168.24.10]       [MINT CLIENTE - 192.168.24.xxx]
         |                                               |
      Apache / FTP / NFS                            Dispositivo de Testes
+
+
+Cada serviço possui um arquivo próprio contendo todos os detalhes do processo de configuração, incluindo scripts utilizados, comandos executados e anotações sobre cada etapa.
+
+A seguir, disponibilizamos o link para o Drive contendo as máquinas virtuais utilizadas no projeto:
 
