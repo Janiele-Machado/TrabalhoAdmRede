@@ -52,39 +52,6 @@ Cada serviço possui um arquivo próprio contendo todos os detalhes do processo 
 
 
 
-3.4. Servidor FTP (Vsftpd)
-
-Objetivo: Permitir transferência de arquivos entre Cliente e Servidor.
-Configuração
-
-Arquivo de configuração /etc/vsftpd.conf (Trecho das configurações ativas):
-Bash
-
-listen=NO
-listen_ipv6=YES
-anonymous_enable=NO
-local_enable=YES
-write_enable=YES
-
-Validação e Testes
-
-Teste 1: Verificação de Porta (Banner Grabbing) Verificando se a porta 21 está ouvindo no servidor:
-Bash
-
-nc -v 192.168.24.10 21
-
-    [INSIRA O PRINT AQUI: Terminal mostrando conexão sucedida com vsftpd]
-
-Teste 2: Upload de Arquivo via Linha de Comando Transferência de um arquivo de teste do Cliente para o Servidor:
-Bash
-
-echo "Arquivo de teste FTP" > teste.txt
-ftp 192.168.24.10
-# Comandos executados dentro do FTP:
-# > put teste.txt
-# > ls
-
-    [INSIRA O PRINT AQUI: Terminal mostrando o login e a transferência do arquivo]
 
 3.5. Servidor NFS (Network File System)
 
