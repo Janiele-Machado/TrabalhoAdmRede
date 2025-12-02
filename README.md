@@ -31,70 +31,25 @@ A topologia utilizada neste projeto segue o seguinte modelo:
 ### Diagrama Lógico
 A topologia lógica utilizada no ambiente virtual é a seguinte:
 
-`
-                  INTERNET
-                     |
-                  [WAN - pfSense] (Bridge)
-                     |
-                [LAN - 192.168.24.1/24]
-                     |
-    -------------------------------------------------
-    |                                               |
-[MINT SERVIDOR - 192.168.24.10]       [MINT CLIENTE - 192.168.24.xxx]
-    |                                               |
- Apache / FTP / NFS                            Dispositivo de Testes`
+
+                                    INTERNET
+                                       |
+                              [WAN - pfSense] (Bridge)
+                                       |
+                              [LAN - 192.168.24.1/24]
+                                       |
+                   -------------------------------------------------
+                  |                                               |
+          [MINT SERVIDOR - 192.168.24.10]       [MINT CLIENTE - 192.168.24.xxx]
+                  |                                               |
+          Apache / FTP / NFS                            Dispositivo de Testes 
+
+ 
 
 Cada serviço possui um arquivo próprio contendo todos os detalhes do processo de configuração, incluindo scripts utilizados, comandos executados e anotações sobre cada etapa.
 
 
-3. Implementação e Testes dos Serviços
-3.1. Servidor DHCP (pfSense)
 
-Objetivo: Atribuir endereços IP automaticamente aos dispositivos na rede (Faixa 192.168.24.x).
-Validação e Testes
-
-Teste 1: Verificação de IP no Cliente Comando executado no Linux Mint Cliente para confirmar o recebimento do IP:
-Bash
-
-ip addr show | grep inet
-
-    [INSIRA O PRINT AQUI: Terminal do cliente mostrando o IP 192.168.24.x]
-
-Teste 2: Log de Transação DHCP (DORA) Comando para forçar renovação e visualizar a negociação com o servidor:
-Bash
-
-sudo dhclient -r && sudo dhclient -v
-
-    [INSIRA O PRINT AQUI: Terminal mostrando os pacotes Discover, Offer, Request, Ack]
-
-Teste 3: Tabela de Leases no Servidor Verificação visual na interface web do pfSense:
-
-    [INSIRA O PRINT AQUI: Tela 'Status > DHCP Leases' do pfSense mostrando o cliente conectado]
-
-3.2. Servidor DNS (pfSense)
-
-Objetivo: Resolver nomes de domínio externos e internos.
-Configuração
-
-O serviço de DNS Resolver foi habilitado no pfSense para escutar na interface LAN e registrar as concessões DHCP e Hosts estáticos.
-
-    [INSIRA O PRINT AQUI: Tela 'Services > DNS Resolver' do pfSense mostrando o serviço habilitado]
-
-Validação e Testes
-
-Teste 1: Resolução de Nomes (Nslookup) Verificando se o servidor DNS preferencial é o pfSense (192.168.24.1):
-Bash
-
-nslookup google.com
-
-    [INSIRA O PRINT AQUI: Terminal mostrando Server: 192.168.24.1 e a resposta do Google]
-
-Teste 2: Detalhamento da Consulta (Dig) Teste de tempo de resposta e autoridade:
-Bash
-
-dig google.com
-
-    [INSIRA O PRINT AQUI: Saída do comando DIG mostrando a query time]
 
 3.3. Servidor Web (Apache)
 
