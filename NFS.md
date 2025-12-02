@@ -65,7 +65,7 @@ sudo chmod -R 777 /srv/nfs/compartilhado
 
 ---
 
-# 📝 5. Configuração do Arquivo /etc/exports
+#  5. Configuração do Arquivo /etc/exports
 
 Edite o arquivo:
 
@@ -128,7 +128,7 @@ sudo mount 192.168.24.10:/srv/nfs/compartilhado /mnt/nfs
 
 ---
 
-# 🔁 8. Montagem Automática (Opcional)
+#  8. Montagem Automática (Opcional)
 
 Para montar automaticamente ao iniciar o sistema, editar o `/etc/fstab`:
 
@@ -166,6 +166,7 @@ Deve aparecer algo como:
 Export list for 192.168.24.10:
 /srv/nfs/compartilhado 192.168.24.0/24
 ```
+<img width="528" height="118" alt="Captura de tela 2025-12-02 132911" src="https://github.com/user-attachments/assets/67ba0c91-8f5b-4168-94b7-f7caed9f2789" />
 
 ---
 
@@ -183,7 +184,7 @@ Servidor:
 ls -l /srv/nfs/compartilhado
 ```
 
-O arquivo deve aparecer.
+<img width="620" height="116" alt="Captura de tela 2025-12-02 133125" src="https://github.com/user-attachments/assets/64ee6867-2858-46d5-94cf-c0416e922724" />
 
 ---
 
@@ -194,6 +195,7 @@ No servidor:
 ```bash
 ls -ld /srv/nfs/compartilhado
 ```
+<img width="574" height="56" alt="Captura de tela 2025-12-02 121049" src="https://github.com/user-attachments/assets/c6c0692a-c170-4483-abc2-d7e623991546" />
 
 ---
 
