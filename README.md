@@ -51,38 +51,6 @@ Cada serviço possui um arquivo próprio contendo todos os detalhes do processo 
 
 
 
-3.3. Servidor Web (Apache)
-
-Objetivo: Hospedar site interno no Linux Mint Servidor (192.168.24.10).
-Configuração
-
-Comando de instalação e verificação do serviço no servidor:
-Bash
-
-sudo apt update && sudo apt install apache2 -y
-sudo systemctl status apache2
-
-    [INSIRA O PRINT AQUI: Terminal do servidor mostrando o status 'Active (running)']
-
-Validação e Testes
-
-Teste 1: Acesso via Terminal (HTTP Header) Executado no Cliente para validar resposta do servidor:
-Bash
-
-curl -I http://192.168.24.10
-
-    [INSIRA O PRINT AQUI: Resultado mostrando HTTP/1.1 200 OK]
-
-Teste 2: Acesso via Navegador Acesso visual realizado pelo Linux Mint Cliente:
-
-    [INSIRA O PRINT AQUI: Print do navegador do Cliente acessando o IP 192.168.24.10]
-
-Teste 3: Log de Acesso em Tempo Real Monitoramento no servidor enquanto o cliente acessa:
-Bash
-
-tail -f /var/log/apache2/access.log
-
-    [INSIRA O PRINT AQUI: Terminal do servidor mostrando o IP do cliente acessando o site]
 
 3.4. Servidor FTP (Vsftpd)
 
