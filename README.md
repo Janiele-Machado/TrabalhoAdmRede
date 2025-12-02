@@ -47,44 +47,16 @@ A topologia lógica utilizada no ambiente virtual é a seguinte:
  
 
 Cada serviço possui um arquivo próprio contendo todos os detalhes do processo de configuração, incluindo scripts utilizados, comandos executados e anotações sobre cada etapa.
+- DHCP e DNS: https://github.com/Janiele-Machado/TrabalhoAdmRede/blob/main/pfsense(DHCPeDNS).md
+  
+- FTP: https://github.com/Janiele-Machado/TrabalhoAdmRede/blob/main/FTP.md
+  
+- NFS: https://github.com/Janiele-Machado/TrabalhoAdmRede/blob/main/NFS.md
+  
+- Servidor Apache: https://github.com/Janiele-Machado/TrabalhoAdmRede/blob/main/ServidorApache.md
 
 
 
-
-
-
-3.5. Servidor NFS (Network File System)
-
-Objetivo: Compartilhamento de diretórios em rede.
-Configuração
-
-Arquivo /etc/exports no Servidor:
-Bash
-
-/var/nfs/compartilhamento 192.168.24.0/24(rw,sync,no_subtree_check)
-
-Comando para aplicar a exportação:
-Bash
-
-sudo exportfs -a
-
-Validação e Testes
-
-Teste 1: Discovery (Showmount) Cliente verificando quais pastas o servidor está compartilhando:
-Bash
-
-showmount -e 192.168.24.10
-
-    [INSIRA O PRINT AQUI: Resultado mostrando /var/nfs/compartilhamento]
-
-Teste 2: Montagem e Escrita Remota O Cliente monta a pasta e cria um arquivo dentro dela para provar permissão de escrita:
-Bash
-
-sudo mount 192.168.24.10:/var/nfs/compartilhamento /mnt
-sudo touch /mnt/arquivo_remoto_cliente.txt
-ls -l /mnt
-
-    [INSIRA O PRINT AQUI: Terminal mostrando o comando de mount e o arquivo criado]
 
 4. Conclusão
 
@@ -92,4 +64,4 @@ Os testes realizados confirmam que a topologia proposta foi implementada com suc
 
 A seguir, disponibilizamos o link para o Drive contendo as máquinas virtuais utilizadas no projeto:
 
-    [INSIRA O LINK AQUI]
+      https://drive.google.com/drive/folders/1XRhj5h6pO6iKldU9u-p12qUaiq5lAKu_?usp=sharing
